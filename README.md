@@ -125,3 +125,75 @@ sam delete --stack-name aws-sam-example
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
+
+
+### Required Authority
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Allow",
+			"Action": [
+				"lambda:CreateFunction",
+				"lambda:TagResource",
+				"iam:TagRole",
+				"s3:CreateBucket",
+				"iam:DeletePolicy",
+				"iam:CreateRole",
+				"s3:ListBucket",
+				"iam:AttachRolePolicy",
+				"cloudformation:CreateChangeSet",
+				"iam:PutRolePolicy",
+				"s3:GetBucketPolicy",
+				"s3:PutEncryptionConfiguration",
+				"apigateway:DELETE",
+				"apigateway:CreateAccessAssociation",
+				"iam:PassRole",
+				"cloudformation:DescribeStackEvents",
+				"s3:PutBucketTagging",
+				"apigateway:PATCH",
+				"cloudformation:UpdateStack",
+				"apigateway:GET",
+				"s3:DeleteObject",
+				"cloudformation:DescribeChangeSet",
+				"s3:DeleteBucket",
+				"cloudformation:ExecuteChangeSet",
+				"s3:PutBucketVersioning",
+				"s3:PutObjectAcl",
+				"cloudformation:ListStackResources",
+				"iam:GetRole",
+				"s3:PutBucketPublicAccessBlock",
+				"apigateway:PUT",
+				"lambda:GetFunction",
+				"resource-groups:*",
+				"iam:ListUserPolicies",
+				"s3:DeleteBucketPolicy",
+				"cloudformation:GetTemplateSummary",
+				"cloudformation:DescribeStacks",
+				"s3:PutObject",
+				"s3:GetObject",
+				"iam:CreateServiceLinkedRole",
+				"lambda:AddPermission",
+				"cloudformation:CreateStack",
+				"cloudformation:DeleteStack",
+				"s3:PutBucketPolicy",
+				"apigateway:POST",
+				"lambda:RemovePermission",
+				"applicationinsights:DescribeApplication",
+				"applicationinsights:CreateApplication",
+				"applicationinsights:ListApplications",
+				"logs:DescribeLogGroups"
+			],
+			"Resource": "*"
+		}
+	]
+}
+```
+
+
+
+
+
