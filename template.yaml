@@ -25,12 +25,23 @@ Resources:
       Runtime: nodejs22.x
       Architectures:
       - x86_64
+      # Policies:
+      #   - S3ReadPolicy:
+      #       BucketName: !Ref StaticSite
+      #   - S3WritePolicy:
+      #       BucketName: !Ref StaticSite
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /hello
             Method: get
+  # StaticSite:
+  #    Type: AWS::S3::Bucket
+  #    Properties:
+  #     PublicAccessBlockConfiguration:
+  #       BlockPublicPolicy: false
+  #       RestrictPublicBuckets: false
 
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group
