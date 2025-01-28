@@ -23,25 +23,24 @@ Resources:
       CodeUri: hello-world/
       Handler: app.lambdaHandler
       Runtime: nodejs22.x
+      Layers:
+        - !Ref DependencyLayer
       Architectures:
       - x86_64
-      # Policies:
-      #   - S3ReadPolicy:
-      #       BucketName: !Ref StaticSite
-      #   - S3WritePolicy:
-      #       BucketName: !Ref StaticSite
       Events:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
             Path: /hello
             Method: get
-  # StaticSite:
-  #    Type: AWS::S3::Bucket
-  #    Properties:
-  #     PublicAccessBlockConfiguration:
-  #       BlockPublicPolicy: false
-  #       RestrictPublicBuckets: false
+
+  DependencyLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      ContentUri: ./opt
+      CompatibleRuntimes: 
+        - nodejs22.x
+      RetentionPolicy: Retain
 
   ApplicationResourceGroup:
     Type: AWS::ResourceGroups::Group
@@ -69,3 +68,4 @@ Outputs:
   HelloWorldFunctionIamRole:
     Description: Implicit IAM Role created for Hello World function
     Value: !GetAtt HelloWorldFunctionRole.Arn
+

@@ -126,6 +126,11 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
+### .aws-sam/build/HelloWorldFunction/node_modules delete sh
+
+```bash
+chmod +x ./node_modules-delete.bash
+```
 
 ### Required Authority
 
@@ -185,7 +190,13 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 				"applicationinsights:DescribeApplication",
 				"applicationinsights:CreateApplication",
 				"applicationinsights:ListApplications",
-				"logs:DescribeLogGroups"
+				"logs:DescribeLogGroups",
+				"lambda:ListTags",
+				"lambda:PublishLayerVersion",
+				"lambda:GetLayerVersion",
+				"lambda:DeleteFunction",
+				"lambda:UpdateFunctionCode",
+				"lambda:UpdateFunctionConfiguration"
 			],
 			"Resource": "*"
 		}
@@ -193,6 +204,13 @@ Next, you can use AWS Serverless Application Repository to deploy ready to use A
 }
 ```
 
+### 명령어 순서
+
+```bash
+> sam build 
+> ./node_modules-delete.bash
+> sam deploy --guided --profile {test}
+```
 
 
 
