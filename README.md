@@ -126,13 +126,17 @@ See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-applica
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
 
-### .aws-sam/build/HelloWorldFunction/node_modules delete sh
+<br>
+
+## 💡 여기서 부터 작성
+
+### deploy.bash를 상황에 맞게 수정필요
 
 ```bash
-chmod +x ./node_modules-delete.bash
+chmod +x ./deploy.bash
 ```
 
-### Required Authority
+### 작업하면서 필요한 권한들
 
 ```json
 {
@@ -204,12 +208,10 @@ chmod +x ./node_modules-delete.bash
 }
 ```
 
-### 명령어 순서
+### 명령어 입력
 
 ```bash
-> sam build 
-> ./node_modules-delete.bash
-> sam deploy --guided --profile {test}
+> ./deploy.bash
 ```
 
 
