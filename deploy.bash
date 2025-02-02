@@ -3,7 +3,7 @@
 set -e  # 에러 발생 시 스크립트 중단
 
 sam build
-sam sam validate
+sam validate
 
 # 변수 지정
 bucket_name="aws-node-lambda-library"
